@@ -1,0 +1,76 @@
+<section class="container book-container">
+  <header>
+    <h1 class="text-center">Targets Information Page</h1>
+  </header>
+  <form [formGroup]="targetForm">
+    <h2>Create your own target</h2>
+    <div class="form-group">
+      <div class="row m-l-xs m-r-xs">
+        <label class="center-block">
+          <p>Company Name:</p>
+      <input type="text" class="form-control" formControlName="companyName">
+    </label>
+      </div>
+      <div class="row m-l-xs m-r-xs">
+        <label class="center-block">
+          <p>Status:</p>
+      <input type="text" class="form-control" formControlName="companyStatus"> 
+    </label>
+      </div>
+      <div class="row m-l-xs m-r-xs">
+        <label class="center-block">
+        <p>Company Type:</p>
+      <input type="text" class="form-control" formControlName="companyType">
+    </label>
+      </div>
+    <div class="row m-l-xs m-r-xs">
+        <label class="center-block">
+        <p>Financial Performance:</p>
+      <input type="text" class="form-control" formControlName="financialPerformance">
+    </label>
+      </div>
+    </div>
+    <div class="row m-l-xs m-r-xs">
+      <div class="text-center">
+        <button type="button" (click)="createNewBook(targetForm);"class="btn btn-primary" [disabled]="!targetForm.valid">CREATE NEW TARGET</button>
+      </div>
+    </div>
+  </form>
+  <div class ="m-t-lg">
+    <h2>Target Entries</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td><strong>Company Name</strong></td>
+        <td><strong>Status</strong></td>
+        <td><strong>Company Type</strong></td>
+        <td><strong>Company Performance</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let targetItem of targetDetails.targets; let idx = index">
+        <ng-container *ngIf="!selectedTemplate(targetItem)">
+        <td>{{targetItem.companyInfo.companyName}}</td>
+        <td>{{targetItem.status}}</td>
+        <td>{{targetItem.companyInfo.companyType}}</td>
+        <td>{{targetItem.financialPerformance}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="editTargetItem(targetItem)">EDIT</button>
+          <button type="button" class="btn btn-primary" (click)="deleteSelectedTarget(idx)">DELETE</button>
+        </td>
+        </ng-container>
+        <ng-container *ngIf="selectedTemplate(targetItem)">
+        <td><input type="text" [(ngModel)]="selectedItem.companyInfo.companyName"></td>
+        <td><input type="text" [(ngModel)]="selectedItem.status"></td>
+        <td><input type="text" [(ngModel)]="selectedItem.companyInfo.companyType"></td>
+        <td><input type="text" [(ngModel)]="selectedItem.financialPerformance"></td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="updateSelectedTarget(idx)">UPDATE</button>
+          <button type="button" class="btn btn-primary" (click)="cancelUpdate()">CANCEL</button>
+        </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>

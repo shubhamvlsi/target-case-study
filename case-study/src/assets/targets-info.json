@@ -1,0 +1,49 @@
+{
+  "targets": [
+    {
+      "status": "Approved",
+      "companyInfo": {
+        "companyName": "BHEL",
+        "companyType": "Government"
+      },
+      "keyContacts": [
+        {
+          "name": "Abhay Sharma",
+          "designation": "Senior Engineer",
+          "contact": "8787878723"
+        }
+      ],
+      "financialPerformance": "Excellent"
+    },
+    {
+      "status": "Approved",
+      "companyInfo": {
+        "companyName": "NTPC",
+        "companyType": "Government"
+      },
+      "keyContacts": [
+        {
+          "name": "Rahul Kumar",
+          "designation": "Managing Director",
+          "contact": "8787878788"
+        }
+      ],
+      "financialPerformance": "Excellent"
+    },
+    {
+      "status": "Pending Approval",
+      "companyInfo": {
+        "companyName": "NoCross",
+        "companyType": "Private"
+      },
+      "keyContacts": [
+        {
+          "name": "Shubham Kaushik",
+          "designation": "Senior Engineer",
+          "contact": "8787878787"
+        }
+      ],
+      "financialPerformance": "Good"
+    }
+  ]
+}
